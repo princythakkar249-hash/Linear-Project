@@ -1,0 +1,47 @@
+[
+  {"id": "title1", "say": "Meet Flow Matrix: a traffic flow network analyzer that turns road networks into mathematics."},
+  {"id": "title2", "say": "Traffic sensors cover only some roads. Flow Matrix uses linear algebra and graph theory to estimate the unknown flows on the others."},
+
+  {"id": "dash1", "say": "The dashboard reads everything live from the database: total networks, total junctions, and solved networks."},
+  {"id": "dash2", "say": "Below are the saved networks, each with its size, creation method and solution status."},
+  {"id": "dash3", "say": "Create New Network offers two methods. Automatic, from a real map, or manual, drawn by hand."},
+
+  {"id": "map1", "say": "For the automatic method, we search for a pickup location. Suggestions from Open Street Map data appear as we type."},
+  {"id": "map2", "say": "Then we choose a destination, and set a demand of one hundred vehicles travelling between the two places."},
+  {"id": "map3", "say": "Flow Matrix finds the driving route, and downloads the actual roads around it from Open Street Map."},
+  {"id": "map4", "say": "Intersections become the vertices of a graph, and the road segments between them become directed edges. One way rules are preserved, and each edge keeps the real road shape."},
+  {"id": "map5", "say": "To keep the system readable, points a few metres apart are merged into one junction, and dead end side streets are left out."},
+  {"id": "map6", "say": "The network is fully editable. We can rename a junction, delete a road, or connect two junctions to add one."},
+  {"id": "map7", "say": "Then we save it to the database."},
+
+  {"id": "man1", "say": "The manual method starts with a blank canvas. Each click creates a junction."},
+  {"id": "man2", "say": "In connect mode, clicking two junctions draws a one way road between them."},
+  {"id": "man3", "say": "Junctions can be dragged, and their roads follow."},
+  {"id": "man4", "say": "We name the junctions, and set the external demand. One hundred vehicles enter at A, and one hundred leave at C."},
+  {"id": "man5", "say": "This road has a sensor, so we mark its flow as known: sixty. Every other road is an unknown, from x one to x four."},
+  {"id": "man6", "say": "Deleting a junction also removes its roads, and the graph updates immediately."},
+
+  {"id": "math1", "say": "Everything is solved on the same page. At every junction, incoming flow minus outgoing flow equals the net demand. That gives one equation per junction."},
+  {"id": "math2", "say": "Written as A X equals B, matrix A has one row for each junction, and one column for each unknown road."},
+  {"id": "math3", "say": "Adding the constants as an extra column gives the augmented matrix."},
+  {"id": "math4", "say": "Gaussian elimination creates zeros below each pivot, giving row echelon form. Every row operation is shown, with the matrix after each step."},
+  {"id": "math5", "say": "Gauss Jordan elimination then continues to the reduced row echelon form."},
+  {"id": "math6", "say": "The rank is three, so there are three independent equations. With four unknowns, x one, x two and x three are pivot variables, and x four is free."},
+
+  {"id": "sol1", "say": "So there are infinitely many solutions. Calling the free value t, x one is sixty minus t, x two is forty, and x three is forty plus t."},
+  {"id": "sol2", "say": "We can enter any value for t. With t equal to ten, every road label updates."},
+  {"id": "sol3", "say": "Traffic cannot be negative. If t is too large, Flow Matrix reports that the solution is mathematically valid, but not physically possible."},
+  {"id": "sol4", "say": "The null space explains this freedom. This vector moves traffic off the road from B to C, and onto the path through D. Every junction stays balanced. That is circulating traffic."},
+
+  {"id": "db1", "say": "We save the network and run the analysis, and its status changes to solved."},
+  {"id": "db2", "say": "After reloading the page, everything is still there, read back from the database."},
+  {"id": "db3", "say": "The dashboard statistics have updated."},
+  {"id": "db4", "say": "Editing a saved network marks its old solution as outdated."},
+  {"id": "db5", "say": "Deleting a network removes it, and the statistics change again."},
+
+  {"id": "tech1", "say": "Flow Matrix is built with React, TypeScript, Tailwind C S S and React Flow on the front end, Python and Fast A P I on the back end, and Postgres for storage."},
+  {"id": "tech2", "say": "The row reduction is our own, in exact fractions. Sim Pie verifies it independently, Num Pie and Sigh Pie check physical feasibility, and the maps come from Open Street Map."},
+
+  {"id": "end1", "say": "The same conservation principle applies to traffic management, water distribution, computer networks and electrical networks."},
+  {"id": "end2", "say": "Flow Matrix. Where mathematics meets real world networks."}
+]

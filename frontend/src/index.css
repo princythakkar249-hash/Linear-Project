@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-slate-50 text-navy-900 antialiased font-sans; }
+  .dark body { @apply bg-navy-950 text-slate-100; }
+  .eq { @apply font-mono text-sm; }
+}
+.react-flow__attribution { display: none; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.fade-up { animation: fadeUp .25s ease-out; }
+@media (prefers-reduced-motion: reduce) { .fade-up { animation: none; } }
+
+/* ---------- responsive / touch refinements ---------- */
+h1, h2, h3 { overflow-wrap: anywhere; }
+/* iOS Safari zooms the page when a focused field is < 16px */
+@media (max-width: 1023px) { input, select, textarea { font-size: 16px !important; } }
+/* Finger-sized targets on touch screens */
+@media (pointer: coarse), (max-width: 1023px) {
+  button:not(.react-flow__controls-button), [role="tab"], select, summary { min-height: 40px; }
+  button.h-9.w-9 { min-width: 40px; }
+  .react-flow__controls-button { width: 34px !important; height: 34px !important; }
+  .react-flow__handle.tfna-src { width: 32px !important; height: 32px !important; right: -16px !important; }
+}
+/* Respect notches / home indicator */
+.safe-bottom { padding-bottom: max(0.5rem, env(safe-area-inset-bottom)); }
+.safe-x { padding-left: max(0.75rem, env(safe-area-inset-left)); padding-right: max(0.75rem, env(safe-area-inset-right)); }
+
+/* ---------- FlowMatrix map ---------- */
+.leaflet-container { font-family: inherit; z-index: 0; isolation: isolate; }
+.fm-icon { background: none; border: none; }
+.fm-node { display: grid; place-items: center; border-radius: 9999px; color: #fff; font-size: 9px; font-weight: 700; border: 2px solid #fff; box-shadow: 0 1px 5px rgba(0,0,0,.45); cursor: pointer; }
+.fm-node.active { outline: 4px solid #22d3ee; }
+.fm-demand { position: absolute; left: 50%; top: 100%; transform: translateX(-50%); white-space: nowrap; background: #ecfeff; color: #155e75; font-size: 10px; font-weight: 700; border-radius: 4px; padding: 0 3px; }
+.fm-flow { position: absolute; transform: translate(-50%, -50%); white-space: nowrap; background: rgba(255,255,255,.95); border: 1px solid; border-radius: 6px; padding: 0 4px; font-size: 11px; font-weight: 700; line-height: 16px; }
+.fm-pin { width: 28px; height: 28px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: grid; place-items: center; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.4); }
+.fm-pin span { transform: rotate(45deg); color: #fff; font-weight: 800; font-size: 13px; }
+.fm-adding, .fm-adding .leaflet-interactive { cursor: crosshair !important; }
+.fm-arrow { display: block; overflow: visible; }
